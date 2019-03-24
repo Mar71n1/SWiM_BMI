@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bmi_margins_top">16dp</dimen>
+    <dimen name="bmi_margins_bottom">8dp</dimen>
+    <dimen name="bmi_margins_side">8dp</dimen>
+    <dimen name="bmi_margins_between_elems">8dp</dimen>
+    <dimen name="bmi_no_space">0dp</dimen>
+    <dimen name="bmi_main_more_info_button_size">50dp</dimen>
+</resources>

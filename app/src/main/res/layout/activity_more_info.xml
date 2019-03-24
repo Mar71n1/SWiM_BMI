@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MoreInfoActivity"
+        android:paddingTop="@dimen/bmi_margins_top"
+        android:paddingLeft="@dimen/bmi_margins_side"
+        android:paddingRight="@dimen/bmi_margins_side">
+    
+    <TextView android:id="@+id/bmi_more_info_number"
+              android:text="@string/bmi_number_default"
+              android:textSize="50sp"
+              android:gravity="center"
+              android:layout_toStartOf="@id/bmi_more_info_image"
+              android:layout_alignParentTop="true"
+              android:layout_alignParentStart="true"
+              android:layout_above="@id/bmi_more_info_text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"/>
+
+    <ImageView android:id="@+id/bmi_more_info_image"
+               app:srcCompat="@drawable/ludzik"
+               android:layout_alignParentEnd="true"
+               android:layout_alignParentTop="true"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/bmi_more_info_text"
+              android:layout_below="@id/bmi_more_info_image"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"/>
+
+</RelativeLayout>

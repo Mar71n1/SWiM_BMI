@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AboutMeActivity"
+        android:paddingTop="@dimen/bmi_margins_top"
+        android:paddingLeft="@dimen/bmi_margins_side"
+        android:paddingRight="@dimen/bmi_margins_side"
+        android:orientation="vertical">
+
+    <ImageView
+            android:id="@+id/bmi_about_image"
+            app:srcCompat="@drawable/logo_pwr_kolor_poziom_bez_tla"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/bmi_margins_between_elems"/>
+
+    <TextView
+            android:id="@+id/bmi_about_text1"
+            android:text="@string/bmi_about_general_info"
+            android:textSize="24sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/bmi_margins_between_elems"/>
+
+    <TextView
+            android:id="@+id/bmi_about_text2"
+            android:text="@string/bmi_about_hobby"
+            android:textSize="24sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/bmi_margins_between_elems"/>
+
+    <ImageView
+            android:id="@+id/bmi_about_image2"
+            app:srcCompat="@drawable/real_madrid_crest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/bmi_margins_between_elems"/>
+
+</LinearLayout>

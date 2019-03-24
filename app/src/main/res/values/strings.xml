@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">BMI</string>
+
+    <string name="textview_mass_kg">Mass [kg]</string>
+    <string name="textview_mass_lb">Mass [lb]</string>
+    <string name="edittext_mass">Enter your mass here</string>
+
+    <string name="textview_height_cm">Height [cm]</string>
+    <string name="textview_height_ft">Height [ft]</string>
+    <string name="edittext_height">Enter your height here</string>
+
+    <string name="bmi_number_default">0.0</string>
+    <string name="bmi_textview_default">Your BMI</string>
+    <string name="button_count">Count BMI</string>
+
+    <string name="bmi_main_menu_about_me">About me</string>
+    <string name="bmi_main_menu_change_units">Change units</string>
+
+    <string name="bmi_main_severely_underweight">Severely underweight</string>
+    <string name="bmi_main_underweight">Underweight</string>
+    <string name="bmi_main_normal">Normal (healthy weight)</string>
+    <string name="bmi_main_overweight">Overweight</string>
+    <string name="bmi_main_obesity">Obesity</string>
+
+    <string name="bmi_about_me_title">About me</string>
+    <string name="bmi_about_general_info">Hi! I\'m Marcin and I\'m studying IT on Wrocław University of Science and
+        Technology.
+    </string>
+    <string name="bmi_about_hobby">I love football and I\'m great fan of Real Madrid.</string>
+
+    <string name="bmi_more_info_title">More info</string>
+    <string name="bmi_more_info_severely_underweight_info">Your body mass index category is Severely Underweight. You should start eating a lot more. Go consult your doctor.</string>
+    <string name="bmi_more_info_underweight_info">Your body mass index category is Underweight. You should start eating more.</string>
+    <string name="bmi_more_info_normal_info">Your body mass index category is Normal (Healthy Weight). Everything is fine. Enjoy your life!</string>
+    <string name="bmi_more_info_overweight_info">Your body mass index category is Overweight. You should start exercising more. </string>
+    <string name="bmi_more_info_obesity_info">Your body mass index category is Obesity. You should start exercising a lot more. You should consult your doctor.</string>
+
+    <string name="noinput_error">Input some data</string>
+    <string name="too_small_data_error">Input bigger data</string>
+</resources>

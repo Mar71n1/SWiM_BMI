@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:paddingTop="@dimen/bmi_margins_top"
+        android:paddingLeft="@dimen/bmi_margins_side"
+        android:paddingRight="@dimen/bmi_margins_side"
+        android:paddingBottom="@dimen/bmi_margins_bottom">
+
+    <TextView
+            android:id="@+id/bmi_main_mass_label"
+            android:text="@string/textview_mass_kg"
+            android:layout_marginTop="@dimen/bmi_margins_between_elems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toTopOf="@+id/guideline"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+
+    <EditText
+            android:id="@+id/bmi_main_mass_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_main_mass_label"
+            android:hint="@string/edittext_mass"
+            android:inputType="numberDecimal"/>
+
+    <TextView
+            android:id="@+id/bmi_main_height_label"
+            android:text="@string/textview_height_cm"
+            android:layout_marginTop="@dimen/bmi_margins_between_elems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_main_mass_edittext"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+
+    <EditText
+            android:id="@+id/bmi_main_height_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_main_height_label"
+            android:hint="@string/edittext_height"/>
+
+    <TextView
+            android:id="@+id/bmi_main_bmi_number"
+            android:text="@string/bmi_number_default"
+            android:layout_height="@dimen/bmi_no_space"
+            android:layout_width="@dimen/bmi_no_space"
+            app:layout_constraintTop_toBottomOf="@+id/bmi_main_height_edittext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/bmi_main_bmi_text"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="32sp"
+            android:gravity="center"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.0"
+            android:textColor="@android:color/black"/>
+
+    <TextView
+            android:id="@+id/bmi_main_bmi_text"
+            android:text="@string/bmi_textview_default"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/bmi_main_count_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:textColor="@android:color/black"/>
+
+    <Button
+            android:id="@+id/bmi_main_count_button"
+            android:text="@string/button_count"
+            android:layout_width="@dimen/bmi_no_space"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="countBmi"/>
+    <Button
+            android:id="@+id/bmi_main_more_info_button"
+            android:text=""
+            android:background="@drawable/button_more_info"
+            android:layout_width="@dimen/bmi_main_more_info_button_size"
+            android:layout_height="@dimen/bmi_main_more_info_button_size"
+            app:layout_constraintBottom_toBottomOf="@+id/bmi_main_bmi_number"
+            app:layout_constraintTop_toTopOf="@+id/bmi_main_bmi_number"
+            app:layout_constraintEnd_toEndOf="@+id/bmi_main_bmi_number"
+            android:layout_marginTop="@dimen/bmi_margins_between_elems"
+            android:layout_marginBottom="@dimen/bmi_margins_bottom"
+            android:onClick="showMoreInfo"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
