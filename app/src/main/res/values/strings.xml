@@ -15,6 +15,7 @@
 
     <string name="bmi_main_menu_about_me">About me</string>
     <string name="bmi_main_menu_change_units">Change units</string>
+    <string name="bmi_main_menu_last_results">Last results</string>
 
     <string name="bmi_main_severely_underweight">Severely underweight</string>
     <string name="bmi_main_underweight">Underweight</string>
@@ -29,12 +30,28 @@
     <string name="bmi_about_hobby">I love football and I\'m great fan of Real Madrid.</string>
 
     <string name="bmi_more_info_title">More info</string>
-    <string name="bmi_more_info_severely_underweight_info">Your body mass index category is Severely Underweight. You should start eating a lot more. Go consult your doctor.</string>
-    <string name="bmi_more_info_underweight_info">Your body mass index category is Underweight. You should start eating more.</string>
-    <string name="bmi_more_info_normal_info">Your body mass index category is Normal (Healthy Weight). Everything is fine. Enjoy your life!</string>
-    <string name="bmi_more_info_overweight_info">Your body mass index category is Overweight. You should start exercising more. </string>
-    <string name="bmi_more_info_obesity_info">Your body mass index category is Obesity. You should start exercising a lot more. You should consult your doctor.</string>
+    <string name="bmi_more_info_severely_underweight_info">Your body mass index category is Severely Underweight. You
+        should start eating a lot more. Go consult your doctor.
+    </string>
+    <string name="bmi_more_info_underweight_info">Your body mass index category is Underweight. You should start eating
+        more.
+    </string>
+    <string name="bmi_more_info_normal_info">Your body mass index category is Normal (Healthy Weight). Everything is
+        fine. Enjoy your life!
+    </string>
+    <string name="bmi_more_info_overweight_info">Your body mass index category is Overweight. You should start
+        exercising more.
+    </string>
+    <string name="bmi_more_info_obesity_info">Your body mass index category is Obesity. You should start exercising a
+        lot more. You should consult your doctor.
+    </string>
 
     <string name="noinput_error">Input some data</string>
     <string name="too_small_data_error">Input bigger data</string>
+
+    <!-- Last results activity strings -->
+    <string name="last_results_toolbar_label">Last results</string>
+    <string name="last_results_mass_label_text">Mass:</string>
+    <string name="last_results_height_label_text">Height:</string>
+    <string name="last_results_result_label_text">Result:</string>
 </resources>

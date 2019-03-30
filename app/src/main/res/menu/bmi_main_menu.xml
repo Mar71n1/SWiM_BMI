@@ -7,4 +7,7 @@
     <item android:id="@+id/change_units"
           android:title="@string/bmi_main_menu_change_units"
           app:showAsAction="never"/>
+    <item android:id="@+id/last_results"
+          android:title="@string/bmi_main_menu_last_results"
+          app:showAsAction="never"/>
 </menu>

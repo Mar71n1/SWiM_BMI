@@ -1,7 +1,8 @@
 package pl.pwr.bmi
 
+import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration.ORIENTATION_PORTRAIT
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -14,15 +15,33 @@ import kotlinx.android.synthetic.main.activity_main.*
 import pl.pwr.bmi.logic.Bmi
 import pl.pwr.bmi.logic.BmiForKgCm
 import pl.pwr.bmi.logic.BmiForLbFt
+import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-
     private var englishUnits: Boolean = false
+
+    private val SHARED_PREFERENCES_NAME = "pl.pwr.bmi.SHARED_PREFERENCES"
+    private val sharedPreferencesMasses = "masses"
+    private val sharedPreferencesHeights = "heights"
+    private val sharedPreferencesResults = "results"
+    private val sharedPreferencesDates = "dates"
+
+    private lateinit var lastResultsPrefs: SharedPreferences
+    private lateinit var massesList: ArrayList<String>
+    private lateinit var heightsList: ArrayList<String>
+    private lateinit var resultsList: ArrayList<String>
+    private lateinit var datesList: ArrayList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        lastResultsPrefs = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
+        massesList = loadListFromSharedPreferences(sharedPreferencesMasses)
+        heightsList = loadListFromSharedPreferences(sharedPreferencesHeights)
+        resultsList = loadListFromSharedPreferences(sharedPreferencesResults)
+        datesList = loadListFromSharedPreferences(sharedPreferencesDates)
 
         if(savedInstanceState != null) {
             bmi_main_mass_label.text = savedInstanceState.getString("mass_label")
@@ -116,6 +135,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.bmi_main_menu, menu)
+
+        if(massesList.size == 0)
+            menu.getItem(2).setEnabled(false)
+
+        return true
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        if(0 < massesList.size)
+        menu.getItem(2).setEnabled(true)
         return true
     }
 
@@ -143,6 +172,10 @@ class MainActivity : AppCompatActivity() {
                 bmi_main_bmi_text.setText(getString(R.string.bmi_textview_default))
                 bmi_main_bmi_text.setTextColor(ContextCompat.getColor(applicationContext, android.R.color.black
                 ))
+                true
+            }
+            R.id.last_results -> {
+                startActivity(Intent(this, LastResultsActivity::class.java))
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -248,6 +281,30 @@ class MainActivity : AppCompatActivity() {
                         )
                     }
                 }
+
+                if(massesList.size == 10) {
+                    massesList.removeAt(0)
+                    heightsList.removeAt(0)
+                    resultsList.removeAt(0)
+                    datesList.removeAt(0)
+                }
+
+                if(englishUnits == false)
+                    massesList.add(String.format(Locale.US,"%.2f", bmi_main_mass_edittext.text.toString().toDouble()) + " kg")
+                else
+                    massesList.add(String.format(Locale.US,"%.2f", bmi_main_mass_edittext.text.toString().toDouble()) + " lb")
+
+                if(englishUnits == false)
+                    heightsList.add(String.format(Locale.US,"%.2f", bmi_main_height_edittext.text.toString().toDouble()) + " cm")
+                else
+                    heightsList.add(String.format(Locale.US,"%.2f", bmi_main_height_edittext.text.toString().toDouble()) + " ft")
+
+                resultsList.add(bmi_main_bmi_number.text.toString())
+                val date = java.util.Calendar.getInstance().getTime()
+                val formatter = SimpleDateFormat("dd/MM/yyyy")
+                datesList.add(formatter.format(date))
+
+                saveSharedPreferencesData()
             }
             catch(ex: IllegalArgumentException) {
                 Toast.makeText(applicationContext, getString(R.string.too_small_data_error), Toast.LENGTH_SHORT).show()
@@ -264,5 +321,60 @@ class MainActivity : AppCompatActivity() {
             putExtra("bmi_value", bmi_main_bmi_number.text.toString().toDouble())
         }
         startActivity(intent)
+    }
+
+    private fun saveSharedPreferencesData() {
+        val editor = lastResultsPrefs.edit()
+        var stringBuilder = StringBuilder()
+
+        for(string in massesList) {
+            stringBuilder.append(string)
+            stringBuilder.append(",")
+        }
+        stringBuilder.setLength(stringBuilder.length - 1)
+        editor.putString(sharedPreferencesMasses, stringBuilder.toString())
+
+        stringBuilder = StringBuilder()
+
+        for(string in heightsList) {
+            stringBuilder.append(string)
+            stringBuilder.append(",")
+        }
+        stringBuilder.setLength(stringBuilder.length - 1)
+        editor.putString(sharedPreferencesHeights, stringBuilder.toString())
+
+        stringBuilder = StringBuilder()
+
+        for(string in resultsList) {
+            stringBuilder.append(string)
+            stringBuilder.append(",")
+        }
+        stringBuilder.setLength(stringBuilder.length - 1)
+        editor.putString(sharedPreferencesResults, stringBuilder.toString())
+
+        stringBuilder = StringBuilder()
+
+        for(string in datesList) {
+            stringBuilder.append(string)
+            stringBuilder.append(",")
+        }
+        stringBuilder.setLength(stringBuilder.length - 1)
+        editor.putString(sharedPreferencesDates, stringBuilder.toString())
+
+        editor.commit()
+    }
+
+    private fun loadListFromSharedPreferences(dataName: String): ArrayList<String> {
+        val string = lastResultsPrefs.getString(dataName, "")
+        val stringArray = string.split(",")
+        val items = ArrayList<String>()
+
+        if(string == "")
+            return items
+
+        for(item in stringArray)
+            items.add(item)
+
+        return items
     }
 }

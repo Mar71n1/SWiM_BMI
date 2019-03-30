@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/last_results_layout"
+        android:padding="@dimen/bmi_margins_side">
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/last_results_mass_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/last_results_mass_label_text"
+                android:textSize="10sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="@dimen/bmi_margins_side"/>
+
+        <TextView
+                android:id="@+id/last_results_mass_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0"
+                android:textSize="20sp"
+                android:layout_marginTop="@dimen/bmi_margins_between_elems"
+                android:layout_marginStart="@dimen/bmi_margins_side"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/last_results_height_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/last_results_height_label_text"
+                android:textSize="10sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="@dimen/bmi_margins_between_elems"/>
+
+        <TextView
+                android:id="@+id/last_results_height_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0"
+                android:textSize="20sp"
+                android:layout_marginTop="@dimen/bmi_margins_between_elems"
+                android:layout_marginStart="@dimen/bmi_margins_between_elems"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/last_results_result_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/last_results_result_label_text"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/bmi_margins_between_elems"
+            android:layout_marginEnd="@dimen/bmi_margins_between_elems"/>
+
+    <TextView
+            android:id="@+id/last_results_result_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="0.0"
+            android:textSize="20sp"
+            android:layout_marginTop="@dimen/bmi_margins_between_elems"
+            android:layout_marginStart="@dimen/bmi_margins_between_elems"/>
+
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/last_results_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="01.01.1970"
+            android:textSize="10sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/bmi_margins_side"/>
+
+</LinearLayout>
